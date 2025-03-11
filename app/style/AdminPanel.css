@@ -1,0 +1,103 @@
+body.admin-body {
+    font-family: Arial, sans-serif;
+    background-color: #CDCEDC;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.admin-header {
+    width: 100%;
+    background-color: #e6dada;
+    padding: 10px 20px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-main-title {
+    font-size: 36px;
+    color: #333;
+    margin-top: 120px; /* เว้นระยะห่างจาก navbar ด้านบน */
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.admin-subtitle {
+    font-size: 24px;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.admin-button-container {
+    display: flex;
+    margin-left: auto; /* ดัน container ของปุ่มไปขวาสุด */
+    padding-right: 47px;
+}
+
+.admin-button {
+    background-color: #7E6565;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.admin-button:hover {
+    background-color: #9c8888;
+}
+
+.admin-container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #D6D7E3;
+}
+
+.admin-positions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.admin-position-link {
+    display: inline-block;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+    margin: 15px 0;
+    padding: 10px 20px;
+    border: 2px solid #333;
+    border-radius: 20px;
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admin-position-link:hover {
+    background-color: #bbb;
+    color: white;
+}
+
+.manager-main-content h2 {
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    font-size: 24px;
+}

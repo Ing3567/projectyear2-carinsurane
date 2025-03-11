@@ -1,0 +1,87 @@
+.customer-display {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.customer-check-container {
+  display: grid;
+  grid-template-columns: 1fr; /* หนึ่งคอลัมน์ */
+  gap: 20px;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: auto; /* จัดให้อยู่กึ่งกลาง */
+}
+
+/* Search Section */
+.customer-search {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.customer-search input {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.customer-search button {
+  padding: 10px 20px;
+  background-color: #7E6565;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 40px;
+  transition: background-color 0.3s ease;
+}
+
+.customer-search button:hover {
+  background-color: #9c8888;
+}
+
+
+.customer-display ul {
+  list-style-type: none; /* เอา bullet point ออก */
+  padding: 0;
+  margin: 0;
+}
+
+.customer-display ul li {
+  margin: 5px 0;
+}
+
+.customer-display ul li a {
+  display: block; /* ให้ลิงก์ใช้ความกว้างเต็ม */
+  text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+  color: #7E6565; /* สีข้อความ */
+  font-weight: bold; /* ตัวหนา */
+  padding: 15px 20px; /* เพิ่มระยะห่างภายใน */
+  background-color: #f5f5f5; /* สีพื้นหลัง */
+  border: 1px solid #ccc; /* เส้นขอบ */
+  border-radius: 5px; /* มุมมน */
+  transition: all 0.3s ease; /* เพิ่มเอฟเฟกต์เวลา hover */
+  margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างลิงก์ */
+}
+
+.customer-display ul li a:hover {
+  background-color: #7E6565; /* เปลี่ยนสีพื้นหลังเวลา hover */
+  color: #fff; /* เปลี่ยนสีตัวอักษรเวลา hover */
+  border-color: #7E6565; /* เปลี่ยนสีขอบเวลา hover */
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}

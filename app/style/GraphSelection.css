@@ -1,0 +1,126 @@
+.unique-graph {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* ซ้าย 1 ส่วน ขวา 2 ส่วน */
+    gap: 20px;
+    max-width: 1200px;
+    width: 100vw; /* ใช้ความกว้างเต็มหน้าจอ */
+    height: auto; /* ใช้ความสูงเต็มหน้าจอ */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.graph-list {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.graph-details {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px; /* มุมโค้งของกล่องรายละเอียด */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.graph-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.graph-item:hover {
+    background-color: #e6e6e6;
+}
+
+.circle-icon {
+    width: 20px;
+    height: 20px;
+    background-color: #7E6565;
+    border-radius: 50%;
+}
+
+.graph-label {
+    flex-grow: 1;
+    font-size: 14px;
+    color: #333;
+}
+
+.graph-details canvas {
+    max-width: 100%; /* กำหนดให้แสดงผลในขนาดที่พอดี */
+    margin: 0 auto;
+}
+
+.graph-item.selected {
+    background-color: #d9f7be; /* พื้นหลังสีเขียว */
+    border-color: #52c41a; /* เส้นขอบสีเขียว */
+}
+
+.dropdown-container {
+    margin-bottom: 20px;
+  }
+  
+  .dropdown {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .dropdown:hover {
+    border-color: #52c41a;
+  }
+
+  .graph-controls h4 {
+    margin-top: 5px; /* เพิ่มระยะห่างใต้หัวข้อ */
+  }
+
+  .graph-controls label {
+    margin-right: 15px; /* เพิ่มระยะห่างระหว่าง label กับ dropdown */
+  }
+
+  .graph-controls select {
+    margin-top: 15px; /* เพิ่มระยะห่างด้านบนของ dropdown */
+    
+  }
+
+  .graph-controls {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .graph-controls div {
+    margin-bottom: 15px; /* เพิ่มระยะห่างระหว่างบล็อคข้อมูล */
+    align-items: center; /* จัด label และ dropdown ในแนวเดียวกัน */
+    
+  }
+  
+  select {
+    background-color: #ffffff; /* พื้นหลังสีขาว */
+    border: 1px solid #ccc; /* เส้นขอบ */
+    border-radius: 10px; /* มุมโค้ง */
+    padding: 5px; /* ระยะห่างภายใน */
+    font-size: 14px; /* ขนาดตัวหนังสือ */
+    transition: all 0.3s ease; /* เพิ่ม transition */
+    cursor: pointer; /* เปลี่ยนเป็น pointer เมื่อ hover */
+  }  
+  
+  option {
+    padding: 10px; /* เพิ่มระยะห่างภายในตัวเลือก */
+    background-color: #ffffff; /* พื้นหลังของตัวเลือก */
+    font-size: 14px; /* ขนาดตัวหนังสือ */
+  }

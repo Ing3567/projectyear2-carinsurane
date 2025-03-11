@@ -1,0 +1,78 @@
+/* head.css */
+
+body.head-body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #e0e0e0;
+}
+
+.head-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #e6dada;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.head-title {
+    font-size: 18px;
+    color: #555;
+}
+
+.head-button-container {
+    display: flex;
+    gap: 10px;
+    padding-right: 30px; /* ขยับปุ่มจากขอบขวา */
+}
+
+.head-button {
+    background-color: #7E6565;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.head-button:hover {
+    background-color: #9c8888;
+}
+
+.head-vertical-navbar {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 150px;
+    height: 100%;
+    background-color: #d8d8d8;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.head-vertical-navbar a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.head-vertical-navbar a:hover {
+    background-color: #bbb;
+}
+
+.head-main-content {
+    margin-left: 170px;
+    padding: 20px;
+    background-color: #cccccc;
+    min-height: 100vh;
+    padding-top: 70px;
+}
+

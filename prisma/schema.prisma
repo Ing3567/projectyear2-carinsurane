@@ -1,0 +1,154 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model claim {
+  ClaimID     Int      @id
+  ClaimDate   DateTime @db.Date
+  ClaimAmount Decimal  @db.Decimal(15, 2)
+  ClaimStatus Int      @db.TinyInt
+  Descrip     String   @db.Text
+  fault       String   @db.VarChar(20)
+  PolicyID    Int
+  policy      policy   @relation(fields: [ClaimID], references: [PolicyID], onDelete: NoAction, onUpdate: NoAction, map: "FK_ClaimtoPolicy")
+}
+
+model customer {
+  CustomerID       Int      @id
+  FirstName        String   @db.VarChar(100)
+  LastName         String   @db.VarChar(100)
+  DateOfBirth      DateTime @db.Date
+  PhoneNumber      String?  @db.VarChar(20)
+  EmailAddress     String?  @db.VarChar(100)
+  Address          String?  @db.VarChar(200)
+  PostalCode       String?  @db.VarChar(10)
+  RegistrationDate DateTime @db.Date
+  policy           policy[]
+}
+
+model departmentid {
+  DepartmentID   String     @id @db.VarChar(4)
+  DepartmentName String     @db.VarChar(20)
+  employee       employee[]
+}
+
+model positionid {
+  PositionID   String     @id @db.VarChar(4)
+  PositionName String?    @db.VarChar(50)
+  employee     employee[]
+}
+
+model employee {
+  EmployeeID   Int          @id
+  FirstName    String       @db.VarChar(100)
+  LastName     String       @db.VarChar(100)
+  DateOfBirth  DateTime     @db.Date
+  PhoneNumber  String       @db.VarChar(20)
+  EmailAddress String       @db.VarChar(100)
+  Address      String       @db.VarChar(200)
+  PostalCode   String       @db.VarChar(10)
+  DepartmentID String       @db.VarChar(4)
+  PositionID   String       @db.VarChar(4)
+  Salary       Decimal      @db.Decimal(10, 2)
+  username     String       @unique(map: "username") @db.VarChar(255)
+  Password     String       @db.VarChar(255)
+  DependsOn    Int?
+  departmentid departmentid @relation(fields: [DepartmentID], references: [DepartmentID], onDelete: NoAction, onUpdate: NoAction, map: "FK_EmployeetoDepartment")
+  positionid   positionid   @relation(fields: [PositionID], references: [PositionID], onDelete: NoAction, onUpdate: NoAction, map: "FK_EmployeetoPositionID")
+  policy       policy[]
+
+  @@index([DepartmentID], map: "FK_EmployeetoPosition")
+  @@index([PositionID], map: "FK_EmployeetoPositionID")
+}
+
+model model {
+  Model String  @id @db.VarChar(50)
+  Brand String  @db.VarChar(50)
+  Price Decimal @db.Decimal(10, 2)
+}
+
+model policy {
+  PolicyID       Int       @id
+  PolicyType     String    @db.VarChar(3)
+  RenewOrNew     String    @db.VarChar(20)
+  CoverageAmount Int
+  TypeOfUse      String    @db.VarChar(50)
+  StartDate      DateTime  @db.Date
+  EndDate        DateTime  @db.Date
+  PremiumAmount  Decimal   @db.Decimal(10, 2)
+  CarDashCam     Int       @db.TinyInt
+  Deductible     Int
+  GarageType     String    @db.VarChar(30)
+  ndperson       String?   @map("2ndperson") @db.VarChar(100)
+  DateOfBirth    DateTime? @db.Date
+  PhoneNumber    String?   @db.VarChar(20)
+  EmployeeID     Int
+  CustomerID     Int
+  VehicleID      Int       @unique(map: "VehicleID")
+  claim          claim?
+  customer       customer  @relation(fields: [CustomerID], references: [CustomerID], onDelete: NoAction, onUpdate: NoAction, map: "FK_PolicytoCustomerID")
+  employee       employee  @relation(fields: [EmployeeID], references: [EmployeeID], onDelete: NoAction, onUpdate: NoAction, map: "FK_PolicytoEmployeeID")
+  vehicle        vehicle   @relation(fields: [VehicleID], references: [VehicleID], onDelete: NoAction, onUpdate: NoAction, map: "FK_PolicytoVehicleID")
+
+  @@index([CustomerID], map: "FK_PolicytoCustomerID")
+  @@index([EmployeeID], map: "FK_PolicytoEmployeeID")
+}
+
+model vehicle {
+  VehicleID    Int     @id
+  LicensePlate String  @db.VarChar(20)
+  Brand        String  @db.VarChar(30)
+  Model        String  @db.VarChar(50)
+  Registration Int     @db.Year
+  VIN          String  @unique(map: "VIN") @db.VarChar(50)
+  policy       policy?
+}
+
+model thai_amphures {
+  id             Int            @id
+  name_th        String         @db.VarChar(150)
+  name_en        String         @db.VarChar(150)
+  province_id    Int
+  created_at     DateTime?      @db.DateTime(0)
+  updated_at     DateTime?      @db.DateTime(0)
+  deleted_at     DateTime?      @db.DateTime(0)
+  thai_provinces thai_provinces @relation(fields: [province_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "thaiprovincesTothaiamphures")
+  thai_tambons   thai_tambons[]
+
+  @@index([province_id], map: "thaiprovincesTothaiamphures")
+}
+
+model thai_provinces {
+  id            Int             @id
+  name_th       String          @db.VarChar(150)
+  name_en       String          @db.VarChar(150)
+  geography_id  Int
+  created_at    DateTime?       @db.DateTime(0)
+  updated_at    DateTime?       @db.DateTime(0)
+  deleted_at    DateTime?       @db.DateTime(0)
+  thai_amphures thai_amphures[]
+}
+
+model thai_tambons {
+  id            Int           @id
+  zip_code      Int
+  name_th       String        @db.VarChar(150)
+  name_en       String        @db.VarChar(150)
+  amphure_id    Int
+  created_at    DateTime?     @db.DateTime(0)
+  updated_at    DateTime?     @db.DateTime(0)
+  deleted_at    DateTime?     @db.DateTime(0)
+  thai_amphures thai_amphures @relation(fields: [amphure_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "thaiamphuresTothaitambons")
+
+  @@index([amphure_id], map: "thaiamphuresTothaitambons")
+}
+
+model login {
+  username   String    @id @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.Timestamp(0)
+}

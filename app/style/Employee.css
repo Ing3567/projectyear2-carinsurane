@@ -1,0 +1,101 @@
+.form-group {
+    display: grid;
+    grid-template-columns: auto 1fr; /* คอลัมน์แรกสำหรับ label, คอลัมน์สองสำหรับ input */
+    column-gap: 15px; /* ระยะห่างระหว่างคอลัมน์ */
+    row-gap: 10px; /* ระยะห่างระหว่างแถว */
+}
+
+.form-item-EM {
+    display: contents; /* ใช้ contents เพื่อให้ label และ input แยกตำแหน่งกันใน grid */
+}
+
+.form-item-EM label {
+    font-size: 14px;
+    color: #333;
+    text-align: right; /* ชิดขวาของคอลัมน์ label */
+    padding-right: 10px; /* ระยะห่างด้านขวาของ label */
+
+}
+
+.form-item-EM input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    color: #666;
+    text-align: center;
+    font-size: 14px;
+    width: 50px; /* ให้ input กว้างเต็มพื้นที่ */
+}
+
+.unique-employee {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* ซ้าย 1 ส่วน ขวา 2 ส่วน */
+    gap: 20px;
+    max-width: 1200px;
+    width: 100vw; /* ใช้ความกว้างเต็มหน้าจอ */
+    height: 100vh; /* ใช้ความสูงเต็มหน้าจอ */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px; /* มุมโค้งของ Container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.unique-employee .employee-list {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employee-list {
+    display: flex;
+    flex-direction: column; /* จัดให้อยู่แนวตั้ง */
+    gap: 15px; /* เพิ่มระยะห่างระหว่างพนักงานแต่ละคน */
+}
+
+.unique-employee .employee-details {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px; /* มุมโค้งของกล่องรายละเอียด */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employee-form-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.employee-form-item:hover {
+    background-color: #e6e6e6;
+}
+
+.employee-form-item.selected {
+    background-color: #d9f7be;
+    border-color: #52c41a;
+}
+
+.circle-button {
+    width: 20px;
+    height: 20px;
+    background-color: #7E6565;
+    border-radius: 50%;
+}
+
+.employee-label {
+    flex-grow: 1;
+    font-size: 14px;
+    color: #333;
+}
+
+.sui {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
