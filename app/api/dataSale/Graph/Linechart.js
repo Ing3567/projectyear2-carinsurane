@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { prisma } from '@app/lib/prisma';
 
 async function generateDateRanges(date) {
     const { subDays, format } = require('date-fns');
